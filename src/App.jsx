@@ -3,6 +3,8 @@ import Header from './Components/Header'
 import TopBanner from './Components/TopBanner'
 import NewsLetter from './Components/NewsLetter'
 import Footer from './Components/Footer';
+import ProductList from './ProductBox/ProductList';
+import Cart from './Cart/Cart';
 
 const App = () => {
   return (

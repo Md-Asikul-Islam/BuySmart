@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import ProductListHeader from "./ProductListHeader";
-import { getProducts } from "../data/products";
+import { getProducts } from "../data/product";
 
 const ProductList = () => {
   const products = getProducts();
