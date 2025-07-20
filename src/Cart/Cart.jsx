@@ -1,6 +1,7 @@
 import React from "react";
 import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
+import SearchAndSort from "./SearchAndSort";
 
 
 const Cart = () => {
@@ -10,6 +11,7 @@ const Cart = () => {
         <h2 className="text-2xl font-bold mb-6">YOUR CART</h2>
         <CartItem />
         <OrderSummary />
+        <SearchAndSort />
       </div>
     </div>
   );
