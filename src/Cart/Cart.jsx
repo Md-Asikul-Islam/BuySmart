@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
 const Cart = () => {
   return (
-    <div>Cart</div>
-  )
-}
+    <div className="lg:col-span-1">
+      <div className="bg-white rounded-lg p-6 border border-gray-200">
+        <h2 className="text-2xl font-bold mb-6">YOUR CART</h2>
+        <CartItem />
+        
+      </div>
+    </div>
+  );
+};
 
-export default Cart
+export default Cart;
