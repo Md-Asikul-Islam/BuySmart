@@ -1,14 +1,15 @@
-import React from 'react'
-import Header from './Components/Header'
-import TopBanner from './Components/TopBanner'
-import NewsLetter from './Components/NewsLetter'
-import Footer from './Components/Footer';
-import ProductList from './ProductBox/ProductList';
-import Cart from './Cart/Cart';
+import React from "react";
+import Header from "./Components/Header";
+import TopBanner from "./Components/TopBanner";
+import NewsLetter from "./Components/NewsLetter";
+import Footer from "./Components/Footer";
+import ProductList from "./ProductBox/ProductList";
+import Cart from "./Cart/Cart";
+import { CartProvider } from "./Context/CartProvider";
 
 const App = () => {
   return (
-    <div>
+    <CartProvider>
       <TopBanner />
       <Header />
       <main className="container mx-auto px-4 md:px-8 py-8">
@@ -19,8 +20,8 @@ const App = () => {
       </main>
       <NewsLetter />
       <Footer />
-    </div>
-  )
-}
+    </CartProvider>
+  );
+};
 
-export default App
+export default App;
