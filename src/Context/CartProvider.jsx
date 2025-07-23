@@ -14,7 +14,11 @@ export const CartProvider = ({ children }) => {
     }
     setCartItems((prevItems) => [...prevItems, product]);
 
-    setProducts(());
+    setProducts((prevProducts) =>
+      prevProducts.map((p) =>
+        p.id === product.id ? { ...p, stock: p.stock - 1 } : p
+      )
+    );
   };
 
   // remove item to cart
