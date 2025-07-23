@@ -12,13 +12,16 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeFromCart = () => {
-
+ 
   }
 
   // check item is in cart 
-  const isInCart = () => {
-  
+  const isInCart = (itemId) => {
+   cartItem.some((item) =>
+     item.id === itemId
+  )
   }
+  
   return (
   <CartContext.Provider value={{products, isInCart, addToCart, removeFromCart}} >
     {children}
