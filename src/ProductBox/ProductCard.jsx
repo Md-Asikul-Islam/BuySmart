@@ -25,12 +25,16 @@ const ProductCard = ({ product, isInCart, addToCart, removeFromCart }) => {
           <p className="font-bold">${product.price} </p>
           {isInCart(product.id) ? (
             <button
-             onClick={() => isInCart(product.id)}
-            className="w-full mt-2 bg-secondary py-1 text-gray-100 rounded flex items-center justify-center">
+              onClick={() => removeFromCart(product.id)}
+              className="w-full mt-2 bg-secondary py-1 text-gray-100 rounded flex items-center justify-center"
+            >
               Remove From Cart
             </button>
           ) : (
-            <button className="w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center">
+            <button
+              onClick={() => addToCart(product)}
+              className="w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center"
+            >
               Add To Cart
             </button>
           )}

@@ -4,26 +4,29 @@ import { getProducts } from "../data/product";
 
 export const CartProvider = ({ children }) => {
   const initialProducts = getProducts()
-  const [cartItem, setCartItem] = useState([]);
-  const [ products, setProducst] = useState(initialProducts)
-   
-  const addToCart = () => {
-
-  }
-
-  const removeFromCart = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [ products, setProducts] = useState(initialProducts)
  
+ //  Add item to cart
+  const addToCart = (product) => {
+    setCartItems((prevItems) => [...prevItems, product])
+
+    setProducts((prevProduct) => prevProduct.map((product) => product) )
   }
 
-  // check item is in cart 
-  const isInCart = (itemId) => {
-   cartItem.some((item) =>
-     item.id === itemId
-  )
+   // remove item to cart
+  const removeFromCart = (productId) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId))
+
+    setProducts((prevProduct) => prevProduct.map((product) => product) )
   }
-  
+
+  // Check if product is already in cart
+  const isInCart = (itemId) => cartItems.some(item => item.id === itemId);
+
+
   return (
-  <CartContext.Provider value={{products, isInCart, addToCart, removeFromCart}} >
+  <CartContext.Provider value={{products, cartItems, isInCart, addToCart, removeFromCart}} >
     {children}
   </CartContext.Provider>
 );
