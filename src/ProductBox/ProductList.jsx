@@ -1,18 +1,16 @@
-
-import { useContext } from "react";
+import React from "react";
 import ProductCard from "./ProductCard";
 import ProductListHeader from "./ProductListHeader";
-import { CartContext } from "../Context";
-
+import { getProducts } from "../data/product";
 
 const ProductList = () => {
-  const {products, isInCart, removeFromCart, addToCart} = useContext(CartContext)
+  const products = getProducts();
   return (
     <div className="lg:col-span-2">
         <ProductListHeader />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} isInCart={isInCart} removeFromCart={removeFromCart}  addToCart={addToCart}/>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
