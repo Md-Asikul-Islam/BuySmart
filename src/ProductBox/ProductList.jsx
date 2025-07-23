@@ -1,10 +1,11 @@
-import React from "react";
+import  { useContext } from "react";
 import ProductCard from "./ProductCard";
 import ProductListHeader from "./ProductListHeader";
-import { getProducts } from "../data/product";
+import { CartContext } from "../Context";
+
 
 const ProductList = () => {
-  const products = getProducts();
+  const {products} = useContext(CartContext)
   return (
     <div className="lg:col-span-2">
         <ProductListHeader />

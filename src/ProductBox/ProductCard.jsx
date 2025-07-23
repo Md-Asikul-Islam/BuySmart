@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
               <Rating rating={product.rating} />
             </div>
             <span className="text-xs text-gray-700">
-              {` (${product.stock} pcs left)`}{" "}
+              {` (${product.stock} pcs left)`}
             </span>
           </div>
           <p className="font-bold">${product.price} </p>
