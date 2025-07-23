@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { CartContext } from "./index";
 import { getProducts } from "../data/product";
 
@@ -6,6 +6,7 @@ export const CartProvider = ({ children }) => {
   const initialProducts = getProducts();
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState(initialProducts);
+  const [searchTerm, setSearchTerm] = useState('')
 
   // Check if product is already in cart
   const isInCart = (itemId) => cartItems.some((item) => item.id === itemId);
@@ -91,12 +92,29 @@ export const CartProvider = ({ children }) => {
     0
   );
 
+  // search Bar implement 
+   
+  // searchTerm হ্যান্ডলার: শুধু searchTerm আপডেট করবে
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // products ফিল্টারেড ভার্সন useMemo দিয়ে মেমোরাইজ করবো
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm) return products;
+    return products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, products]);
+
   return (
     <CartContext.Provider
       value={{
-        products,
+        products: filteredProducts,
         cartItems,
         subtotal,
+        searchTerm, 
+        handleChange,
         isInCart,
         addToCart,
         removeFromCart,

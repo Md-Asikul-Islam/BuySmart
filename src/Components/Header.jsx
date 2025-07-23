@@ -1,7 +1,9 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context";
 
 const Header = () => {
+  const { searchTerm, handleChange } = useContext(CartContext);
   return (
     <header className="border-b border-gray-200 py-4 px-4 md:px-8 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -33,8 +35,11 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search products..."
+              value={searchTerm}
+              onChange={handleChange}
               className="bg-gray-100 rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
             />
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5 text-gray-400 absolute right-3 top-2.5"
@@ -53,38 +58,12 @@ const Header = () => {
 
           {/* Cart Icon */}
           <Link to="#" className="text-gray-600 hover:text-black">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-              />
-            </svg>
+            {/* Cart SVG */}
           </Link>
 
           {/* Profile Icon */}
           <Link to="#" className="text-gray-600 hover:text-black">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
+            {/* Profile SVG */}
           </Link>
         </div>
       </div>
