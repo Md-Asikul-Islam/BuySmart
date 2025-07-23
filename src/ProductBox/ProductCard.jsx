@@ -33,7 +33,8 @@ const ProductCard = ({ product, isInCart, addToCart, removeFromCart }) => {
           ) : (
             <button
               onClick={() => addToCart(product)}
-              className="w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center"
+              disabled={product.stock=== 0 }
+              className={`w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center ${product.stock === 0 ? "bg-gray-400 cursor-not-allowed " : "bg-primary"} `}
             >
               Add To Cart
             </button>
