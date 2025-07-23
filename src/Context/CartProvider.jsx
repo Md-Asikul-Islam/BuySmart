@@ -7,21 +7,21 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [ products, setProducts] = useState(initialProducts)
  
- //  Add item to cart
+//  Add item to cart
   const addToCart = (product) => {
     setCartItems((prevItems) => [...prevItems, product])
 
-    setProducts((prevProduct) => prevProduct.map((product) => product) )
+    setProducts((prevProducts) => prevProducts.map((product) => product))
   }
 
-   // remove item to cart
+// remove item to cart
   const removeFromCart = (productId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId))
 
-    setProducts((prevProduct) => prevProduct.map((product) => product) )
+    setProducts((prevProducts) => prevProducts.map((product) => product))
   }
 
-  // Check if product is already in cart
+// Check if product is already in cart
   const isInCart = (itemId) => cartItems.some(item => item.id === itemId);
 
 
