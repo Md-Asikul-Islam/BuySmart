@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeFromCart = () => {
-    
+
   }
 
   // check item is in cart 
@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
   
   }
   return (
-  <CartContext.Provider value={{products, isInCart}} >
+  <CartContext.Provider value={{products, isInCart, addToCart, removeFromCart}} >
     {children}
   </CartContext.Provider>
 );

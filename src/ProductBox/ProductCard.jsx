@@ -1,7 +1,7 @@
 import React from "react";
 import { getImageUrl } from "./../Utils/utility";
 import Rating from "./Rating";
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, isInCart, addToCart, removeFromCart }) => {
   return (
     <>
       <div className="bg-gray-100 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300">
@@ -23,6 +23,7 @@ const ProductCard = ({ product }) => {
             </span>
           </div>
           <p className="font-bold">${product.price} </p>
+
           <button className="w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center">
             Add To Cart
           </button>
