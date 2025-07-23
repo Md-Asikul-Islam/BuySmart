@@ -1,30 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../Context";
 
-const OrderSummary = () => {
+function OrderSummary() {
+  const { subtotal } = useContext(CartContext);
+
+  const deliveryFee = 50;
+  const discountRate = 0.2;
+
+
+  const discount = subtotal * discountRate;
+  const total = subtotal - discount + deliveryFee;
+
   return (
-    <div className="mt-6">
-      <h3 className="font-bold text-lg mb-4">Order Summary</h3>
+    <div className="border-t pt-4 mt-4">
+      <h2 className="text-lg font-bold mb-2">Order Summary</h2>
 
-      <div className="space-y-2 mb-4">
+      <div className="space-y-2 text-sm">
         <div className="flex justify-between">
-          <span className="text-gray-600">Subtotal</span>
-          <span className="font-medium">$565</span>
-        </div>
-        <div className="flex justify-between text-red-500">
-          <span>Discount (-20%)</span>
-          <span>-$113</span>
+          <span>Subtotal</span>
+          <span>$ {subtotal.toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-600">Delivery Fee</span>
-          <span className="font-medium">$15</span>
+          <span>Discount (20%)</span>
+          <span>-$ {discount.toFixed(2)}</span>
         </div>
-        <div className="flex justify-between font-bold text-lg pt-2 border-t border-gray-200">
+        <div className="flex justify-between">
+          <span>Delivery Fee</span>
+          <span>$ {deliveryFee.toFixed(2)}</span>
+        </div>
+        <div className="border-t pt-2 flex justify-between font-bold text-base">
           <span>Total</span>
-          <span>$467</span>
+          <span>$ {total.toFixed(2)}</span>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default OrderSummary;
+

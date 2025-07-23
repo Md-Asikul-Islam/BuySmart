@@ -5,7 +5,7 @@ import { CartContext } from "../Context";
  const CartItem = ({item}) => {
   const {removeFromCart, increaseItem, decreaseItem} = useContext(CartContext)
   return (
-    <div className="flex items-start space-x-4 pb-4 border-b border-gray-200 mb-4">
+    <div className="flex items-start space-x-4 pb-4 mb-4">
       <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center">
         <img
           src={getImageUrl(item.cover)}
