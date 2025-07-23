@@ -1,7 +1,7 @@
 import React from "react";
 import { getImageUrl } from "./../Utils/utility";
 import Rating from "./Rating";
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, isInCart, removeFromCart, addToCart }) => {
   return (
     <>
       <div className="bg-gray-100 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300">
@@ -19,12 +19,14 @@ const ProductCard = ({ product }) => {
               <Rating rating={product.rating} />
             </div>
             <span className="text-xs text-gray-700">
-              {` (${product.stock} pcs left)`}{" "}
+              {` (${product.stock} pcs left)`}
             </span>
           </div>
           <p className="font-bold">${product.price} </p>
-          <button className="w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center">
-            Add To Cart
+          <button 
+           onClick={isInCart(product.id) ? removeFromCart(product.id) : addToCart(product)}
+          className={`w-full mt-2 bg-primary py-1 text-gray-100 rounded flex items-center justify-center ${isInCart(product.id) ? "bg-secondary" : "bg-primary" }`}>
+           {isInCart(product.id) ? "Remove From Cart" : "Add To Cart"} 
           </button>
         </div>
       </div>
