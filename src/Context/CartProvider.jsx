@@ -6,12 +6,21 @@ export const CartProvider = ({ children }) => {
   const initialProducts = getProducts()
   const [cartItem, setCartItem] = useState([]);
   const [ products, setProducst] = useState(initialProducts)
+   
+  const addToCart = () => {
 
+  }
+
+  const removeFromCart = () => {
+    
+  }
 
   // check item is in cart 
- 
+  const isInCart = () => {
+  
+  }
   return (
-  <CartContext.Provider value={{products}} >
+  <CartContext.Provider value={{products, isInCart}} >
     {children}
   </CartContext.Provider>
 );
